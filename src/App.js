@@ -2,7 +2,7 @@ import logo from './img/logo.svg';
 import { useState } from 'react';
 import './App.css';
 import { ModalComponent } from './components/ModalComponent';
-import { sendMail } from './sendEmail';
+// import { sendMail } from './sendEmail';
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ function App() {
 
 	const sendMessageHandler = () => {
 		if (!checkInputs()) return;
-		sendMail(name, lastName, email, message);
+		// sendMail(name, lastName, email, message);
 	};
 
 	const onHideHandler = () => {
