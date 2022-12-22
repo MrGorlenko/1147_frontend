@@ -16,7 +16,7 @@ function App() {
 	};
 
 	const setLastNameHandler = (event) => {
-		setLastName(event.target.name);
+		setLastName(event.target.value);
 	};
 
 	const setEmailHandler = (event) => {
