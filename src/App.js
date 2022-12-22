@@ -2,7 +2,7 @@ import logo from './img/logo.svg';
 import { useState } from 'react';
 import './App.css';
 import { ModalComponent } from './components/ModalComponent';
-// import { sendMail } from './sendEmail';
+import axios from 'axios';
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
@@ -32,9 +32,19 @@ function App() {
 		return true;
 	};
 
-	const sendMessageHandler = () => {
+	const sendMessageHandler = async () => {
 		if (!checkInputs()) return;
-		// sendMail(name, lastName, email, message);
+		try {
+			await axios.post('http://localhost:8000/mail', {
+				name,
+				lastName,
+				email,
+				message,
+			});
+			setShowModal(false);
+		} catch {
+			alert('Some error on server occured');
+		}
 	};
 
 	const onHideHandler = () => {
