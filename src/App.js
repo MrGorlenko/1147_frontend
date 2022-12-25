@@ -35,7 +35,7 @@ function App() {
 	const sendMessageHandler = async () => {
 		if (!checkInputs()) return;
 		try {
-			await axios.post('http://localhost:8000/mail', {
+			await axios.post('http://3.239.77.90:8001/mail', {
 				name,
 				lastName,
 				email,
