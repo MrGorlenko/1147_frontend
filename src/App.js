@@ -3,6 +3,9 @@ import { useState } from 'react';
 import './App.css';
 import { ModalComponent } from './components/ModalComponent';
 import axios from 'axios';
+import env from 'react-dotenv';
+
+// require('dotenv').config();
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
@@ -35,13 +38,14 @@ function App() {
 	const sendMessageHandler = async () => {
 		if (!checkInputs()) return;
 		try {
-			await axios.post('http://3.239.77.90:8001/mail', {
+			await axios.post(`${env.PROTOCOL}://${env.IP}:${env.PORT}/mail`, {
 				name,
 				lastName,
 				email,
 				message,
 			});
 			setShowModal(false);
+			alert('Your message is received!');
 		} catch {
 			alert('Some error on server occured');
 		}
@@ -58,22 +62,16 @@ function App() {
 	return (
 		<div className="app">
 			<header className="header">
-				<img
-					src={logo}
-					alt="logo"></img>
+				<img src={logo} alt="logo"></img>
 			</header>
 			<div className="content">
 				<h1>Website coming soon</h1>
-				<button
-					className="button"
-					onClick={onShowHandler}>
+				<button className="button" onClick={onShowHandler}>
 					Contact us
 				</button>
 			</div>
 
-			<ModalComponent
-				show={showModal}
-				onHide={onHideHandler}>
+			<ModalComponent show={showModal} onHide={onHideHandler}>
 				<h3>get in touch</h3>
 
 				<input
@@ -103,10 +101,7 @@ function App() {
 					value={message}
 					onChange={setMessageHandler}></textarea>
 
-				<button
-					id="form_button"
-					className="button"
-					onClick={sendMessageHandler}>
+				<button id="form_button" className="button" onClick={sendMessageHandler}>
 					CONTACT US
 				</button>
 			</ModalComponent>

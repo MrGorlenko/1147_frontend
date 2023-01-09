@@ -1,5 +1,5 @@
 window.env = {
-  "EMAIL_SENDER": "mrgorlenko1@gmail.com",
-  "PASSWORD": "zmknadxmxlvtcuac",
-  "EMAIL_RECEIVER": "mrgorlenko1@gmail.com"
+	PROTOCOL: 'http',
+	IP: '3.239.77.90',
+	PORT: 8001,
 };
