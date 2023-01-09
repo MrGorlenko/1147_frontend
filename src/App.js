@@ -55,9 +55,9 @@ function App() {
 		setShowModal(false);
 	};
 
-	const onShowHandler = () => {
-		setShowModal(true);
-	};
+	// const onShowHandler = () => {
+	// 	setShowModal(true);
+	// };
 
 	return (
 		<div className="app">
@@ -66,9 +66,9 @@ function App() {
 			</header>
 			<div className="content">
 				<h1>Website coming soon</h1>
-				<button className="button" onClick={onShowHandler}>
+				{/* <button className="button" onClick={onShowHandler}>
 					Contact us
-				</button>
+				</button> */}
 			</div>
 
 			<ModalComponent show={showModal} onHide={onHideHandler}>
